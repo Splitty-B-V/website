@@ -1242,7 +1242,7 @@
                 
                 <!-- Right Side - Form -->
                 <div class="contact-form-wrapper">
-                    <form id="book-demo" class="contact-form">
+                    <form id="book-demo" class="contact-form" action="https://formspree.io/f/mjkrvran" method="POST">
                         <div class="form-header">
                             <h3>Vul je gegevens in</h3>
                             <p>We nemen zo snel mogelijk contact met je op</p>
@@ -2513,58 +2513,142 @@
         const contactForm = document.getElementById('book-demo');
         
         if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
+            contactForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                // Get form data
-                const formData = new FormData(this);
-                const data = {};
-                
-                // Convert FormData to object
-                for (let [key, value] of formData.entries()) {
-                    data[key] = value;
-                }
-                
-                // Prepare email content
-                const emailSubject = 'Nieuwe demo aanvraag - Splitty';
-                const emailBody = `
-Nieuwe demo aanvraag ontvangen:
-
-Voornaam: ${data.name}
-Achternaam: ${data.surname}
-Telefoonnummer: ${data.phone}
-Email: ${data.email}
-Kassasysteem: ${data.pos}
-Restaurant/Bar: ${data.restaurant}
-Adres: ${data.address}
-Postcode: ${data.postal || 'Niet opgegeven'}
-
----
-Dit bericht is verzonden via het contactformulier op de Splitty website.
-                `.trim();
-                
-                // Create mailto link
-                const mailtoLink = `mailto:milad@splitty.nl?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-                
-                // Open email client
-                window.location.href = mailtoLink;
-                
-                // Show success message
                 const submitButton = contactForm.querySelector('.btn-submit');
                 const originalButtonContent = submitButton.innerHTML;
                 
-                submitButton.innerHTML = '<span>✓ Email client geopend!</span>';
-                submitButton.style.background = 'linear-gradient(135deg, #43DB6F 0%, #3CC962 100%)';
+                // Show loading state
+                submitButton.innerHTML = '<span>Verzenden...</span>';
                 submitButton.disabled = true;
                 
-                // Reset form after 3 seconds
-                setTimeout(() => {
-                    contactForm.reset();
-                    submitButton.innerHTML = originalButtonContent;
-                    submitButton.style.background = '';
-                    submitButton.disabled = false;
-                }, 3000);
+                try {
+                    // Submit to Formspree
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success popup
+                        showSuccessPopup();
+                        
+                        // Update button
+                        submitButton.innerHTML = '<span>✓ Verzonden!</span>';
+                        submitButton.style.background = 'linear-gradient(135deg, #43DB6F 0%, #3CC962 100%)';
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitButton.innerHTML = originalButtonContent;
+                            submitButton.style.background = '';
+                            submitButton.disabled = false;
+                        }, 3000);
+                    } else {
+                        throw new Error('Submit failed');
+                    }
+                } catch (error) {
+                    // Show error
+                    submitButton.innerHTML = '<span>❌ Fout opgetreden</span>';
+                    submitButton.style.background = 'linear-gradient(135deg, #FF4444 0%, #CC0000 100%)';
+                    
+                    // Reset after 3 seconds
+                    setTimeout(() => {
+                        submitButton.innerHTML = originalButtonContent;
+                        submitButton.style.background = '';
+                        submitButton.disabled = false;
+                    }, 3000);
+                }
             });
+        }
+        
+        // Success popup function
+        function showSuccessPopup() {
+            // Create popup
+            const popup = document.createElement('div');
+            popup.className = 'success-popup';
+            popup.innerHTML = `
+                <div class="popup-content">
+                    <div class="popup-icon">✓</div>
+                    <h3>Bedankt voor je aanvraag!</h3>
+                    <p>We nemen binnen 24 uur contact met je op.</p>
+                </div>
+            `;
+            
+            // Add styles
+            const style = document.createElement('style');
+            style.textContent = `
+                .success-popup {
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    border-radius: 16px;
+                    padding: 40px;
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+                    z-index: 10000;
+                    opacity: 0;
+                    animation: popupFadeIn 0.3s ease forwards;
+                    text-align: center;
+                }
+                
+                @keyframes popupFadeIn {
+                    to { opacity: 1; }
+                }
+                
+                @keyframes popupFadeOut {
+                    to { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+                }
+                
+                .popup-content {
+                    max-width: 300px;
+                }
+                
+                .popup-icon {
+                    width: 60px;
+                    height: 60px;
+                    background: linear-gradient(135deg, #43DB6F 0%, #3CC962 100%);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 30px;
+                    color: white;
+                    margin: 0 auto 20px;
+                }
+                
+                .success-popup h3 {
+                    font-size: 24px;
+                    margin-bottom: 10px;
+                    color: #333;
+                }
+                
+                .success-popup p {
+                    font-size: 16px;
+                    color: #666;
+                    margin: 0;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add to page
+            document.body.appendChild(popup);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                popup.style.animation = 'popupFadeOut 0.3s ease forwards';
+                setTimeout(() => {
+                    popup.remove();
+                    style.remove();
+                }, 300);
+            }, 3000);
         }
     </script>
 
