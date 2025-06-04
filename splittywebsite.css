@@ -1148,10 +1148,10 @@ p {
 
 /* Hero Section */
 .hero {
-  padding-top: calc(80px + var(--spacing-2xl));
-  padding-bottom: var(--spacing-xl);
+  padding-top: calc(80px + var(--spacing-3xl));
+  padding-bottom: var(--spacing-3xl);
   background: #FFFFFF;
-  min-height: calc(100vh - 80px);
+  min-height: auto;
   display: flex;
   align-items: center;
   position: relative;
