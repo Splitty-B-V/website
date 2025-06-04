@@ -2650,6 +2650,7 @@
                 }, 300);
             }, 3000);
         }
+        
     </script>
 
     <!-- Footer -->
@@ -2771,14 +2772,14 @@
                         </div>
                         <div class="newsletter">
                             <p>Blijf op de hoogte</p>
-                            <div class="newsletter-form">
-                                <input type="email" placeholder="Email adres">
+                            <form class="newsletter-form" action="https://formspree.io/f/xgvyvogn" method="POST" id="newsletter-form">
+                                <input type="email" name="email" placeholder="Email adres" required>
                                 <button type="submit">
                                     <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
                                         <path d="M10.5 4.5L16 10M16 10L10.5 15.5M16 10H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                                     </svg>
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -2804,5 +2805,59 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Newsletter form handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonContent = submitButton.innerHTML;
+                
+                // Show loading state
+                submitButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="43.98" stroke-dashoffset="10"><animate attributeName="stroke-dashoffset" from="43.98" to="0" dur="1s" repeatCount="indefinite"/></circle></svg>';
+                submitButton.disabled = true;
+                
+                try {
+                    // Submit to Formspree
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success checkmark
+                        submitButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                        submitButton.style.color = '#43DB6F';
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            submitButton.innerHTML = originalButtonContent;
+                            submitButton.style.color = '';
+                            submitButton.disabled = false;
+                        }, 2000);
+                    } else {
+                        throw new Error('Submit failed');
+                    }
+                } catch (error) {
+                    // Reset on error
+                    submitButton.innerHTML = originalButtonContent;
+                    submitButton.disabled = false;
+                    alert('Er ging iets mis. Probeer het later opnieuw.');
+                }
+            });
+            }
+        });
+    </script>
 </body>
 </html>
