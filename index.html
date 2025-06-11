@@ -540,7 +540,7 @@
                             <h3 class="tab1-title"></h3>
                         </div>
                         <p class="tab-description tab1-desc"></p>
-                        <div class="tab-progress"></div>
+                        <div class="tab-progress" style="width: 0%;"></div>
                     </div>
                     
                     <div class="tab-nav-item" data-tab="tab2">
@@ -551,7 +551,7 @@
                             <h3 class="tab2-title"></h3>
                         </div>
                         <p class="tab-description tab2-desc"></p>
-                        <div class="tab-progress"></div>
+                        <div class="tab-progress" style="width: 0%;"></div>
                     </div>
                     
                     <div class="tab-nav-item" data-tab="tab3">
@@ -562,7 +562,7 @@
                             <h3 class="tab3-title"></h3>
                         </div>
                         <p class="tab-description tab3-desc"></p>
-                        <div class="tab-progress"></div>
+                        <div class="tab-progress" style="width: 0%;"></div>
                     </div>
                     
                     <div class="tab-nav-item" data-tab="tab4">
@@ -573,7 +573,7 @@
                             <h3 class="tab4-title"></h3>
                         </div>
                         <p class="tab-description tab4-desc"></p>
-                        <div class="tab-progress"></div>
+                        <div class="tab-progress" style="width: 0%;"></div>
                     </div>
                     
                     <div class="tab-nav-item" data-tab="tab5">
@@ -584,7 +584,7 @@
                             <h3 class="tab5-title"></h3>
                         </div>
                         <p class="tab-description tab5-desc"></p>
-                        <div class="tab-progress"></div>
+                        <div class="tab-progress" style="width: 0%;"></div>
                     </div>
                 </div>
             </div>
@@ -1481,6 +1481,14 @@
                 (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting && !hasStartedRotation) {
+                            // Animate the progress bar for the first tab
+                            const firstTabProgress = document.querySelector('.tab-nav-item.active .tab-progress');
+                            if (firstTabProgress) {
+                                setTimeout(() => {
+                                    firstTabProgress.style.width = '100%';
+                                }, 100);
+                            }
+                            
                             // Start auto-rotation when section comes into view
                             startAutoRotate();
                             hasStartedRotation = true;
