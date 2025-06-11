@@ -135,6 +135,27 @@
             }
         }
         
+        /* Orange hover effect for coming soon partner cards */
+        .partner-card:has(.integration-status.coming-soon):hover {
+            border-color: rgba(255, 140, 0, 0.3) !important;
+            background: rgba(255, 140, 0, 0.02) !important;
+            box-shadow: 0 8px 32px rgba(255, 140, 0, 0.15), 
+                        0 0 0 1px rgba(255, 140, 0, 0.1) inset !important;
+        }
+        
+        .partner-card:has(.integration-status.coming-soon):hover .logo-glow {
+            background: radial-gradient(circle at center, rgba(255, 140, 0, 0.15) 0%, transparent 70%) !important;
+        }
+        
+        .partner-card:has(.integration-status.coming-soon):hover .partner-logo-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle at center, rgba(255, 140, 0, 0.1) 0%, transparent 60%);
+            filter: blur(20px);
+            pointer-events: none;
+        }
+        
         /* Mobile specific optimizations */
         @media (max-width: 768px) {
             .logo img {
