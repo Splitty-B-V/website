@@ -100,6 +100,41 @@
             }
         }
         
+        /* Coming soon status styling */
+        .integration-status.coming-soon {
+            background: rgba(255, 140, 0, 0.08) !important;
+            border: 1px solid rgba(255, 140, 0, 0.2) !important;
+            backdrop-filter: blur(10px);
+        }
+        
+        .integration-status.coming-soon .status-dot {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFA500 100%) !important;
+            box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.15), 
+                        0 2px 8px rgba(255, 140, 0, 0.25) !important;
+            animation: pulse-orange 2s infinite;
+        }
+        
+        .integration-status.coming-soon .status-text {
+            color: #FF6B00 !important;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        
+        @keyframes pulse-orange {
+            0% {
+                box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.15), 
+                            0 2px 8px rgba(255, 140, 0, 0.25);
+            }
+            50% {
+                box-shadow: 0 0 0 5px rgba(255, 140, 0, 0.1), 
+                            0 2px 12px rgba(255, 140, 0, 0.3);
+            }
+            100% {
+                box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.15), 
+                            0 2px 8px rgba(255, 140, 0, 0.25);
+            }
+        }
+        
         /* Mobile specific optimizations */
         @media (max-width: 768px) {
             .logo img {
@@ -1147,9 +1182,9 @@
                             <div class="logo-glow"></div>
                         </div>
                         <div class="partner-info">
-                            <div class="integration-status">
+                            <div class="integration-status coming-soon">
                                 <div class="status-dot"></div>
-                                <span class="status-text"></span>
+                                <span class="status-text">Binnenkort beschikbaar</span>
                             </div>
                             <h3 class="partner-name">mplusKASSA</h3>
                         </div>
@@ -1163,9 +1198,9 @@
                             <div class="logo-glow"></div>
                         </div>
                         <div class="partner-info">
-                            <div class="integration-status">
+                            <div class="integration-status coming-soon">
                                 <div class="status-dot"></div>
-                                <span class="status-text"></span>
+                                <span class="status-text">Binnenkort beschikbaar</span>
                             </div>
                             <h3 class="partner-name">Povis</h3>
                         </div>
@@ -1795,6 +1830,7 @@
                 'partners.title': 'Samenwerking met jouw kassasysteem',
                 'partners.subtitle': 'Splitty integreert perfect met de populairste kassasystemen in Nederland. Plug & play installatie binnen 15 minuten.',
                 'partners.status': 'Live & Actief',
+                'partners.coming': 'Binnenkort beschikbaar',
                 'partners.question': 'Jouw kassasysteem niet in de lijst?',
                 'partners.contact': 'Neem contact op',
                 
@@ -1951,6 +1987,7 @@
                 'partners.title': 'Partnership with your POS system',
                 'partners.subtitle': 'Splitty integrates perfectly with the most popular POS systems in the Netherlands. Plug & play installation within 15 minutes.',
                 'partners.status': 'Live & Active',
+                'partners.coming': 'Coming soon',
                 'partners.question': 'Your POS system not on the list?',
                 'partners.contact': 'Get in touch',
                 
@@ -2630,7 +2667,12 @@
             // Partner cards status
             const partnerStatuses = document.querySelectorAll('.status-text');
             partnerStatuses.forEach(status => {
-                status.textContent = t['partners.status'];
+                // Check if this status is for a coming-soon partner
+                if (status.parentElement.classList.contains('coming-soon')) {
+                    status.textContent = t['partners.coming'] || 'Binnenkort beschikbaar';
+                } else {
+                    status.textContent = t['partners.status'];
+                }
             });
             
             // Partners CTA
