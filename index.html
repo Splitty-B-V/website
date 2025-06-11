@@ -488,7 +488,7 @@
             <div class="tabs-two-column-wrapper">
                 <!-- Left Side - Images -->
                 <div class="tabs-images-column">
-                    <div class="tab-image-item" data-tab="tab1">
+                    <div class="tab-image-item active" data-tab="tab1">
                         <div class="tab-image-wrapper">
                             <div class="blob-1"></div>
                             <div class="blob-2"></div>
@@ -520,7 +520,7 @@
                             <img loading="lazy" src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/681de2c015517151d94d77a2_Tab_4.webp" alt="" class="image-feature">
                         </div>
                     </div>
-                    <div class="tab-image-item active" data-tab="tab5">
+                    <div class="tab-image-item" data-tab="tab5">
                         <div class="tab-image-wrapper">
                             <div class="blob-1"></div>
                             <div class="blob-2"></div>
@@ -532,7 +532,7 @@
                 
                 <!-- Right Side - Steps -->
                 <div class="tabs-steps-column">
-                    <div class="tab-nav-item" data-tab="tab1">
+                    <div class="tab-nav-item active" data-tab="tab1">
                         <div class="tab-nav-header">
                             <div class="tab-icon-wrapper">
                                 <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680b9739793d2caf7bbee086_1-icon.svg" alt="1">
@@ -576,7 +576,7 @@
                         <div class="tab-progress"></div>
                     </div>
                     
-                    <div class="tab-nav-item active" data-tab="tab5">
+                    <div class="tab-nav-item" data-tab="tab5">
                         <div class="tab-nav-header">
                             <div class="tab-icon-wrapper">
                                 <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/681ce33363626766f3f8080c_5-icon.svg" alt="5">
@@ -1416,7 +1416,7 @@
         const tabNavItems = document.querySelectorAll('.tab-nav-item');
         const tabImageItems = document.querySelectorAll('.tab-image-item');
         let autoRotateInterval;
-        let currentTabIndex = 4; // Start with tab 5 (index 4)
+        let currentTabIndex = 0; // Start with tab 1 (index 0)
 
         function showTab(tabId) {
             // Hide all images
@@ -1472,8 +1472,28 @@
             }, 6000); // 6 seconds per tab
         }
 
-        // Start auto-rotation
-        startAutoRotate();
+        // Intersection Observer to start rotation when section is visible
+        let hasStartedRotation = false;
+        const tabsSection = document.querySelector('.tabs-two-column-wrapper');
+        
+        if (tabsSection) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !hasStartedRotation) {
+                            // Start auto-rotation when section comes into view
+                            startAutoRotate();
+                            hasStartedRotation = true;
+                        }
+                    });
+                },
+                {
+                    threshold: 0.3 // Start when 30% of the section is visible
+                }
+            );
+            
+            observer.observe(tabsSection);
+        }
 
         // Mobile slider functionality
         const sliderTrack = document.querySelector('.slider-track');
