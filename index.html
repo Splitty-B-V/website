@@ -205,7 +205,7 @@
                 <div class="nav-menu">
                     <a href="#oplossingen" class="nav-link">Oplossingen</a>
                     <a href="#integraties" class="nav-link">Integraties</a>
-                    <a href="#contact" class="nav-link">Contact</a>
+                    <a href="about-us.html" class="nav-link">Over ons</a>
                     <a href="#contact" class="nav-link btn-primary">Boek een demo</a>
                     <div class="language-selector">
                         <button class="language-toggle" aria-label="Change language" type="button">
@@ -305,14 +305,14 @@
                 </span>
                 <span>Integraties</span>
             </a>
-            <a href="#contact" class="mobile-nav-link">
+            <a href="about-us.html" class="mobile-nav-link">
                 <span class="nav-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </span>
-                <span>Contact</span>
+                <span>Over ons</span>
             </a>
             <a href="#contact" class="mobile-nav-link btn-primary">
                 <span class="nav-icon">
@@ -1746,7 +1746,7 @@
                 // Navigation
                 'nav.solutions': 'Oplossingen',
                 'nav.integrations': 'Integraties',
-                'nav.contact': 'Contact',
+                'nav.about': 'Over ons',
                 'nav.bookDemo': 'Boek een demo',
                 
                 // Hero Section
@@ -1903,7 +1903,7 @@
                 // Navigation
                 'nav.solutions': 'Solutions',
                 'nav.integrations': 'Integrations',
-                'nav.contact': 'Contact',
+                'nav.about': 'About us',
                 'nav.bookDemo': 'Book a demo',
                 
                 // Hero Section
@@ -2059,7 +2059,7 @@
             de: {
                 'nav.solutions': 'Lösungen',
                 'nav.integrations': 'Integrationen',
-                'nav.contact': 'Kontakt',
+                'nav.about': 'Über uns',
                 'nav.bookDemo': 'Demo buchen',
                 'hero.title1': 'Ultraschnelle Restaurant',
                 'hero.title2': 'Zahlungslösungen',
@@ -2423,13 +2423,13 @@
                 // Navigation
                 document.querySelectorAll('.nav-link')[0].textContent = t['nav.solutions'];
             document.querySelectorAll('.nav-link')[1].textContent = t['nav.integrations'];
-            document.querySelectorAll('.nav-link')[2].textContent = t['nav.contact'];
+            document.querySelectorAll('.nav-link')[2].textContent = t['nav.about'];
             document.querySelectorAll('.nav-link.btn-primary')[0].innerHTML = t['nav.bookDemo'];
             
             // Mobile menu
             document.querySelectorAll('.mobile-nav-link')[0].querySelector('span:not(.nav-icon)').textContent = t['nav.solutions'];
             document.querySelectorAll('.mobile-nav-link')[1].querySelector('span:not(.nav-icon)').textContent = t['nav.integrations'];
-            document.querySelectorAll('.mobile-nav-link')[2].querySelector('span:not(.nav-icon)').textContent = t['nav.contact'];
+            document.querySelectorAll('.mobile-nav-link')[2].querySelector('span:not(.nav-icon)').textContent = t['nav.about'];
             document.querySelectorAll('.mobile-nav-link.btn-primary')[0].querySelector('span:not(.nav-icon)').textContent = t['nav.bookDemo'];
             
             // Hero section
@@ -2754,7 +2754,7 @@
                 if (links.length >= 4) {
                     links[0].textContent = t['nav.solutions'];
                     links[1].textContent = t['nav.integrations'];
-                    links[2].textContent = t['nav.contact'];
+                    links[2].textContent = t['nav.about'];
                     links[3].textContent = t['nav.bookDemo'];
                 }
             }
@@ -2766,7 +2766,7 @@
                 if (contactTitle) contactTitle.textContent = lang === 'nl' ? 'Contact' : lang === 'de' ? 'Kontakt' : 'Contact';
                 const contactItems = footerContact.querySelectorAll('.contact-item span');
                 if (contactItems.length >= 2) {
-                    contactItems[0].textContent = 'Amsterdam, Nederland';
+                    contactItems[0].innerHTML = 'Prins Hendrikkade 21e<br>1012 TL Amsterdam';
                     contactItems[1].textContent = 'info@splitty.nl';
                 }
             }
@@ -2973,14 +2973,16 @@
                 <div class="footer-main">
                     <!-- Brand Column -->
                     <div class="footer-brand">
-                        <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680be744050df4a2fa729a9d_Logo.svg" 
-                             alt="Splitty Logo" 
-                             class="footer-logo" 
-                             loading="lazy" 
-                             decoding="async"
-                             width="120"
-                             height="30"
-                             style="width: 120px; height: auto; max-width: 100%; display: block;">
+                        <a href="#hero" style="text-decoration: none;">
+                            <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680be744050df4a2fa729a9d_Logo.svg" 
+                                 alt="Splitty Logo" 
+                                 class="footer-logo" 
+                                 loading="lazy" 
+                                 decoding="async"
+                                 width="120"
+                                 height="30"
+                                 style="width: 120px; height: auto; max-width: 100%; display: block;">
+                        </a>
                         <p class="brand-tagline">Betalen was nog nooit zo makkelijk</p>
                         <div class="footer-language-selector language-selector">
                             <button class="language-toggle" aria-label="Change language" type="button">
@@ -3037,7 +3039,7 @@
                         <ul>
                             <li><a href="#oplossingen">Oplossingen</a></li>
                             <li><a href="#integraties">Integraties</a></li>
-                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="about-us.html">Over ons</a></li>
                             <li><a href="#contact">Boek een demo</a></li>
                         </ul>
                     </div>
@@ -3050,7 +3052,7 @@
                                 <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#43DB6F" stroke-width="2"></path>
                                 <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#43DB6F" stroke-width="2"></path>
                             </svg>
-                            <span>Amsterdam, Nederland</span>
+                            <span>Prins Hendrikkade 21e<br>1012 TL Amsterdam</span>
                         </div>
                         <div class="contact-item">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -3169,6 +3171,7 @@
             });
             }
         });
+        
     </script>
 </body>
 </html>
