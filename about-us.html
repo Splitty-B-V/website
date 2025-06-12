@@ -374,10 +374,11 @@
             background: white;
             color: #666;
             font-family: 'Inter', sans-serif;
-            position: relative;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
+            position: relative;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
@@ -913,6 +914,21 @@
                 gap: 20px;
             }
         }
+        
+        /* Desktop styles for restaurant display */
+        @media (min-width: 1024px) {
+            .restaurant-info-column {
+                height: 500px;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .restaurants-list-container {
+                flex: 1;
+                max-height: calc(500px - 48px); /* Total height minus padding */
+                overflow-y: auto;
+            }
+        }
 
         @media (max-width: 768px) {
             .about-hero {
@@ -1078,11 +1094,16 @@
                 padding: 12px 20px;
                 font-size: 14px;
                 width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
             }
             
             .tab-buttons {
                 flex-direction: column;
                 width: 100%;
+                align-items: center;
             }
             
             .section-title {
