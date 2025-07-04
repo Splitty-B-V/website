@@ -3896,44 +3896,6 @@
                 });
             });
         }
-
-        // Smooth scroll functionality for navigation links
-        function initSmoothScroll() {
-            // Handle all navigation links
-            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-            
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    
-                    // Check if it's an internal link with hash
-                    if (href && href.startsWith('#')) {
-                        e.preventDefault();
-                        const targetId = href.substring(1);
-                        const targetElement = document.getElementById(targetId);
-                        
-                        if (targetElement) {
-                            // Smooth scroll to target
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                            
-                            // Update URL hash without jumping
-                            history.pushState(null, null, href);
-                        }
-                    }
-                    // For links to other pages with hash (like index.html#contact)
-                    else if (href && href.includes('#')) {
-                        // Let the browser handle navigation
-                        return true;
-                    }
-                });
-            });
-        }
-
-        // Initialize smooth scroll
-        initSmoothScroll();
     </script>
 </body>
 </html>

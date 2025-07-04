@@ -36,6 +36,11 @@
     <link rel="icon" type="image/png" href="Assets/Favicon.png">
     <link rel="stylesheet" href="splittywebsite.css">
     <style>
+        /* Enable smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         /* Fallback styles to ensure dropdown works */
         .language-dropdown {
             display: none;
@@ -3191,10 +3196,14 @@
                         const targetElement = document.getElementById(targetId);
                         
                         if (targetElement) {
-                            // Smooth scroll to target
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
+                            // Calculate the target position with offset for navbar
+                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                            
+                            // Smooth scroll to target with offset
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
                             });
                             
                             // Update URL hash without jumping
@@ -3213,19 +3222,30 @@
         // Handle navigation from other pages with hash
         function handleHashOnLoad() {
             if (window.location.hash) {
-                // Small delay to ensure page is fully loaded
-                setTimeout(() => {
+                // Wait for DOM to be ready
+                if (document.readyState === 'loading') {
+                    document.addEventListener('DOMContentLoaded', scrollToHash);
+                } else {
+                    scrollToHash();
+                }
+                
+                function scrollToHash() {
                     const targetId = window.location.hash.substring(1);
                     const targetElement = document.getElementById(targetId);
                     
                     if (targetElement) {
-                        // Smooth scroll to target
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
+                        // Small delay to ensure layout is complete
+                        setTimeout(() => {
+                            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                            
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }, 50);
                     }
-                }, 100);
+                }
             }
         }
 
