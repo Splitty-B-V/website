@@ -208,7 +208,7 @@
                 <div class="nav-menu">
                     <a href="#oplossingen" class="nav-link">Oplossingen</a>
                     <a href="#integraties" class="nav-link">Integraties</a>
-                    <a href="about-us.html" class="nav-link">Over ons</a>
+                    <a href="/about-us" class="nav-link">Over ons</a>
                     <a href="#contact" class="nav-link btn-primary">Boek een demo</a>
                     <div class="language-selector">
                         <button class="language-toggle" aria-label="Change language" type="button">
@@ -308,7 +308,7 @@
                 </span>
                 <span>Integraties</span>
             </a>
-            <a href="about-us.html" class="mobile-nav-link">
+            <a href="/about-us" class="mobile-nav-link">
                 <span class="nav-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -3042,7 +3042,7 @@
                         <ul>
                             <li><a href="#oplossingen">Oplossingen</a></li>
                             <li><a href="#integraties">Integraties</a></li>
-                            <li><a href="about-us.html">Over ons</a></li>
+                            <li><a href="/about-us">Over ons</a></li>
                             <li><a href="#contact">Boek een demo</a></li>
                         </ul>
                     </div>
@@ -3105,9 +3105,9 @@
                     <div class="bottom-content">
                         <p class="copyright">© 2025 Splitty BV. Alle rechten voorbehouden.</p>
                         <div class="legal-links">
-                            <a href="#">Privacy Policy</a>
+                            <a href="/privacy-policy">Privacy Policy</a>
                             <span class="separator">•</span>
-                            <a href="#">Algemene Voorwaarden</a>
+                            <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
                             <span class="separator">•</span>
                             <span class="kvk">KVK: 96332751</span>
                         </div>
@@ -3174,6 +3174,66 @@
             });
             }
         });
+
+        // Smooth scroll functionality for navigation links
+        function initSmoothScroll() {
+            // Handle all navigation links
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Check if it's an internal link with hash
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Smooth scroll to target
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // Update URL hash without jumping
+                            history.pushState(null, null, href);
+                        }
+                    }
+                    // For links to other pages with hash (like index.html#contact from about-us.html)
+                    else if (href && href.includes('#')) {
+                        // Let the browser handle navigation, but we'll handle smooth scroll on page load
+                        return true;
+                    }
+                });
+            });
+        }
+
+        // Handle navigation from other pages with hash
+        function handleHashOnLoad() {
+            if (window.location.hash) {
+                // Small delay to ensure page is fully loaded
+                setTimeout(() => {
+                    const targetId = window.location.hash.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        // Smooth scroll to target
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }, 100);
+            }
+        }
+
+        // Initialize smooth scroll
+        initSmoothScroll();
+        
+        // Handle hash on page load (for navigation from other pages)
+        handleHashOnLoad();
         
     </script>
 </body>

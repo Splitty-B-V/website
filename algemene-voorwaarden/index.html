@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+    <title>Algemene Voorwaarden - Splitty</title>
+    
+    <meta name="description" content="Algemene Voorwaarden van Splitty. Lees de voorwaarden voor het gebruik van onze diensten.">
+    
+    <!-- Open Graph tags (voor LinkedIn, Facebook, enz.) -->
+    <meta property="og:title" content="Algemene Voorwaarden - Splitty">
+    <meta property="og:description" content="Algemene Voorwaarden van Splitty. Lees de voorwaarden voor het gebruik van onze diensten.">
+    <meta property="og:image" content="https://splitty.nl/assets/og-image.jpg">
+    <meta property="og:url" content="https://splitty.nl/algemene-voorwaarden">
+    <meta property="og:type" content="website">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://splitty.nl/algemene-voorwaarden">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Algemene Voorwaarden - Splitty">
+    <meta name="twitter:description" content="Algemene Voorwaarden van Splitty. Lees de voorwaarden voor het gebruik van onze diensten.">
+    <meta name="twitter:image" content="https://splitty.nl/assets/og-image.jpg">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R2M6ZFEMMX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-R2M6ZFEMMX');
+    </script>
+    
+    <link rel="icon" type="image/png" href="/Assets/Favicon.png">
+    <link rel="stylesheet" href="/splittywebsite.css">
+    <style>
+        /* Fallback styles to ensure dropdown works */
+        .language-dropdown {
+            display: none;
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: white;
+            border: 1px solid rgba(67, 219, 111, 0.2);
+            border-radius: 12px;
+            padding: 8px;
+            min-width: 160px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            z-index: 99999;
+        }
+        
+        /* When active, show the dropdown */
+        .language-selector.active .language-dropdown {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            transform: translateY(0) !important;
+        }
+        
+        /* Make sure selector has proper positioning context */
+        .language-selector {
+            position: relative !important;
+        }
+        
+        /* Make sure button is clickable */
+        .language-toggle {
+            cursor: pointer !important;
+            user-select: none;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Ensure dropdown is above other elements */
+        .language-dropdown {
+            z-index: 999999 !important;
+        }
+        
+        /* Language option hover state */
+        .language-option:hover {
+            background-color: rgba(67, 219, 111, 0.08);
+        }
+        
+        /* SVG Logo Optimization for High-DPI Displays */
+        .logo img,
+        .footer-logo {
+            shape-rendering: geometricPrecision;
+            text-rendering: geometricPrecision;
+            image-rendering: auto;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+        }
+        
+        /* Ensure crisp rendering on retina displays */
+        @media (-webkit-min-device-pixel-ratio: 2), 
+               (min-resolution: 192dpi) {
+            .logo img,
+            .footer-logo {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: optimize-contrast;
+            }
+        }
+
+        /* Legal content specific styles */
+        .legal-content {
+            padding: 160px 0 80px;
+            min-height: 100vh;
+            background: #FAFAFA;
+        }
+
+        .legal-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .legal-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .legal-header h1 {
+            font-size: 48px;
+            font-weight: 600;
+            color: #17181C;
+            margin-bottom: 16px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .legal-meta {
+            font-size: 16px;
+            color: #6B7177;
+        }
+
+        .legal-section {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+
+        .legal-section h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #17181C;
+            margin-bottom: 20px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .legal-section h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #17181C;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        .legal-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4E5459;
+            margin-bottom: 16px;
+        }
+
+        .legal-section ul,
+        .legal-section ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .legal-section li {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4E5459;
+            margin-bottom: 8px;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .legal-content {
+                padding: 140px 0 60px;
+            }
+
+            .legal-header h1 {
+                font-size: 36px;
+            }
+
+            .legal-section {
+                padding: 24px;
+            }
+
+            .legal-section h2 {
+                font-size: 20px;
+            }
+
+            .legal-section h3 {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .legal-header h1 {
+                font-size: 28px;
+            }
+
+            .legal-section {
+                padding: 20px;
+                margin-bottom: 16px;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=DM+Sans:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script>
+        // Immediate scroll to top - runs before anything else
+        window.scrollTo(0, 0);
+    </script>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="/" class="logo">
+                    <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680be744050df4a2fa729a9d_Logo.svg" 
+                         alt="Splitty Logo" 
+                         loading="eager" 
+                         decoding="async"
+                         width="160"
+                         height="40"
+                         style="width: auto; height: 40px; max-width: 100%; display: block;">
+                </a>
+                <div class="nav-menu">
+                    <a href="/#oplossingen" class="nav-link">Oplossingen</a>
+                    <a href="/#integraties" class="nav-link">Integraties</a>
+                    <a href="/about-us" class="nav-link">Over ons</a>
+                    <a href="/#contact" class="nav-link btn-primary">Boek een demo</a>
+                    <div class="language-selector">
+                        <button class="language-toggle" aria-label="Change language" type="button">
+                            <div class="language-current">
+                                <svg class="flag-icon" viewBox="0 0 36 36">
+                                    <!-- Dutch flag -->
+                                    <rect fill="#AE1C28" x="0" y="0" width="36" height="12"/>
+                                    <rect fill="#FFF" x="0" y="12" width="36" height="12"/>
+                                    <rect fill="#21468B" x="0" y="24" width="36" height="12"/>
+                                </svg>
+                                <span class="language-code">NL</span>
+                            </div>
+                            <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+                        <div class="language-dropdown">
+                            <button class="language-option active" data-lang="nl">
+                                <svg class="flag-icon" viewBox="0 0 36 36">
+                                    <!-- Dutch flag -->
+                                    <rect fill="#AE1C28" x="0" y="0" width="36" height="12"/>
+                                    <rect fill="#FFF" x="0" y="12" width="36" height="12"/>
+                                    <rect fill="#21468B" x="0" y="24" width="36" height="12"/>
+                                </svg>
+                                <span class="language-name">Nederlands</span>
+                            </button>
+                            <button class="language-option" data-lang="en">
+                                <svg class="flag-icon" viewBox="0 0 36 36">
+                                    <!-- UK flag -->
+                                    <rect fill="#00247D" x="0" y="0" width="36" height="36"/>
+                                    <path d="M0,0 L36,36 M36,0 L0,36" stroke="#FFF" stroke-width="6"/>
+                                    <path d="M0,0 L36,36 M36,0 L0,36" stroke="#CF142B" stroke-width="4" stroke-dasharray="0,6,30"/>
+                                    <path d="M18,0 v36 M0,18 h36" stroke="#FFF" stroke-width="10"/>
+                                    <path d="M18,0 v36 M0,18 h36" stroke="#CF142B" stroke-width="6"/>
+                                </svg>
+                                <span class="language-name">English</span>
+                            </button>
+                            <button class="language-option" data-lang="de">
+                                <svg class="flag-icon" viewBox="0 0 36 36">
+                                    <!-- German flag -->
+                                    <rect fill="#000" x="0" y="0" width="36" height="12"/>
+                                    <rect fill="#DD0000" x="0" y="12" width="36" height="12"/>
+                                    <rect fill="#FFCE00" x="0" y="24" width="36" height="12"/>
+                                </svg>
+                                <span class="language-name">Deutsch</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-nav-right">
+                    <!-- Mobile Language Toggle - Only visible on mobile -->
+                    <button class="mobile-lang-toggle" aria-label="Change language" type="button" data-lang="nl">
+                        <svg class="flag-icon" viewBox="0 0 36 36">
+                            <!-- Dutch flag -->
+                            <rect fill="#AE1C28" x="0" y="0" width="36" height="12"/>
+                            <rect fill="#FFF" x="0" y="12" width="36" height="12"/>
+                            <rect fill="#21468B" x="0" y="24" width="36" height="12"/>
+                        </svg>
+                        <span class="language-code">NL</span>
+                    </button>
+                    <div class="mobile-menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-close">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <div class="mobile-menu-content">
+            <a href="/#oplossingen" class="mobile-nav-link">
+                <span class="nav-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L13.09 8.26L19 9L14 13.14L15.45 19.84L12 16.5L8.55 19.84L10 13.14L5 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span>Oplossingen</span>
+            </a>
+            <a href="/#integraties" class="mobile-nav-link">
+                <span class="nav-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M19 14C20.49 12.54 22 10.79 22 8.5C22 7.04131 21.4205 5.64236 20.3891 4.61091C19.3576 3.57946 17.9587 3 16.5 3C14.74 3 13.5 3.5 12 5C10.5 3.5 9.26 3 7.5 3C6.04131 3 4.64236 3.57946 3.61091 4.61091C2.57946 5.64236 2 7.04131 2 8.5C2 10.8 3.5 12.55 5 14L12 21L19 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span>Integraties</span>
+            </a>
+            <a href="/about-us" class="mobile-nav-link">
+                <span class="nav-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span>Over ons</span>
+            </a>
+            <a href="/#contact" class="mobile-nav-link btn-primary">
+                <span>Boek een demo</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Terms and Conditions Content -->
+    <section class="legal-content">
+        <div class="legal-container">
+            <div class="legal-header">
+                <h1>Algemene Voorwaarden</h1>
+                <p class="legal-meta">Laatst bijgewerkt: Januari 2025</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 1: Definities</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In deze algemene voorwaarden wordt verstaan onder:</p>
+                <ul>
+                    <li><strong>Splitty:</strong> Splitty BV, gevestigd te Amsterdam</li>
+                    <li><strong>Klant:</strong> De natuurlijke persoon of rechtspersoon die een overeenkomst aangaat met Splitty</li>
+                    <li><strong>Dienst:</strong> De betaaldiensten aangeboden door Splitty</li>
+                    <li><strong>Overeenkomst:</strong> Iedere overeenkomst tussen Splitty en de Klant</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 2: Toepasselijkheid</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deze algemene voorwaarden zijn van toepassing op alle aanbiedingen, overeenkomsten en diensten van Splitty.</p>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Afwijkingen van deze algemene voorwaarden zijn slechts geldig indien deze uitdrukkelijk schriftelijk zijn overeengekomen.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 3: Aanbod en Aanvaarding</h2>
+                <h3>3.1 Aanbod</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Alle aanbiedingen van Splitty zijn vrijblijvend, tenzij uitdrukkelijk anders vermeld.</p>
+                <h3>3.2 Aanvaarding</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Een overeenkomst komt tot stand door aanvaarding van het aanbod door de Klant.</p>
+                <h3>3.3 Duur van de overeenkomst</h3>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 4: Dienstverlening</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Splitty zal zich inspannen om de overeengekomen diensten naar behoren uit te voeren.</p>
+                <ol>
+                    <li>De Klant is verantwoordelijk voor het correct gebruik van de diensten</li>
+                    <li>Splitty kan niet garanderen dat de diensten te allen tijde zonder onderbreking beschikbaar zijn</li>
+                    <li>Onderhoud en updates kunnen leiden tot tijdelijke onbeschikbaarheid</li>
+                </ol>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 5: Tarieven en Betaling</h2>
+                <h3>5.1 Tarieven</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. De actuele tarieven zijn te vinden op onze website of worden op aanvraag verstrekt.</p>
+                <h3>5.2 Betalingstermijn</h3>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Facturen dienen binnen 14 dagen na factuurdatum te worden voldaan.</p>
+                <h3>5.3 Gevolgen van niet-tijdige betaling</h3>
+                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Bij niet-tijdige betaling is de Klant van rechtswege in verzuim.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 6: Aansprakelijkheid</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. De aansprakelijkheid van Splitty is beperkt tot het bedrag dat in het betreffende geval door de verzekeraar wordt uitgekeerd.</p>
+                <ul>
+                    <li>Splitty is niet aansprakelijk voor indirecte schade</li>
+                    <li>Splitty is niet aansprakelijk voor schade door overmacht</li>
+                    <li>De Klant vrijwaart Splitty voor aanspraken van derden</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 7: Overmacht</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Splitty is niet gehouden tot het nakomen van enige verplichting indien zij daartoe verhinderd is als gevolg van overmacht.</p>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Onder overmacht wordt onder meer verstaan: storingen in de telecommunicatie-infrastructuur, overheidsmaatregelen, stakingen en algemene vervoersproblemen.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 8: Intellectuele Eigendom</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Alle intellectuele eigendomsrechten met betrekking tot de diensten berusten bij Splitty of haar licentiegevers.</p>
+                <p>De Klant krijgt een niet-exclusief gebruiksrecht voor de duur van de overeenkomst.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 9: Geheimhouding</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beide partijen zijn verplicht tot geheimhouding van alle vertrouwelijke informatie die zij in het kader van hun overeenkomst van elkaar of uit andere bron hebben verkregen.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 10: Beëindiging</h2>
+                <h3>10.1 Opzegging</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Beide partijen kunnen de overeenkomst schriftelijk opzeggen met inachtneming van een opzegtermijn van één maand.</p>
+                <h3>10.2 Ontbinding</h3>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Splitty is bevoegd de overeenkomst te ontbinden indien de Klant haar verplichtingen niet nakomt.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 11: Wijziging voorwaarden</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Splitty behoudt zich het recht voor deze algemene voorwaarden te wijzigen of aan te vullen.</p>
+                <p>Wijzigingen gelden ook ten aanzien van reeds gesloten overeenkomsten met inachtneming van een termijn van 30 dagen na bekendmaking.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 12: Toepasselijk recht en geschillen</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Op alle overeenkomsten tussen Splitty en de Klant is Nederlands recht van toepassing.</p>
+                <p>Geschillen zullen worden voorgelegd aan de bevoegde rechter in Amsterdam, tenzij partijen kiezen voor arbitrage of mediation.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Artikel 13: Slotbepalingen</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Deze algemene voorwaarden zijn gedeponeerd bij de Kamer van Koophandel.</p>
+                <p>In geval van uitleg van de inhoud en strekking van deze algemene voorwaarden, is de Nederlandse tekst daarvan steeds bepalend.</p>
+                <p>Van toepassing is steeds de versie zoals die gold ten tijde van het tot stand komen van de overeenkomst.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <!-- Footer Background -->
+        <div class="footer-bg">
+            <div class="footer-gradient"></div>
+            <div class="footer-pattern">
+                <div class="pattern-dot dot-1"></div>
+                <div class="pattern-dot dot-2"></div>
+                <div class="pattern-dot dot-3"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="footer-wrapper">
+                <!-- Footer Main -->
+                <div class="footer-main">
+                    <!-- Brand Column -->
+                    <div class="footer-brand">
+                        <a href="/" style="text-decoration: none;">
+                            <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680be744050df4a2fa729a9d_Logo.svg" 
+                                 alt="Splitty Logo" 
+                                 class="footer-logo" 
+                                 loading="lazy" 
+                                 decoding="async"
+                                 width="120"
+                                 height="30"
+                                 style="width: 120px; height: auto; max-width: 100%; display: block;">
+                        </a>
+                        <p class="brand-tagline">Betalen was nog nooit zo makkelijk</p>
+                        <div class="footer-language-selector language-selector">
+                            <button class="language-toggle" aria-label="Change language" type="button">
+                                <div class="language-current">
+                                    <svg class="flag-icon" viewBox="0 0 36 36">
+                                        <!-- Dutch flag -->
+                                        <rect fill="#AE1C28" x="0" y="0" width="36" height="12"></rect>
+                                        <rect fill="#FFF" x="0" y="12" width="36" height="12"></rect>
+                                        <rect fill="#21468B" x="0" y="24" width="36" height="12"></rect>
+                                    </svg>
+                                    <span class="language-code">NL</span>
+                                </div>
+                                <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m6 9 6 6 6-6"></path>
+                                </svg>
+                            </button>
+                            <div class="language-dropdown footer-language-dropdown">
+                                <button class="language-option active" data-lang="nl">
+                                    <svg class="flag-icon" viewBox="0 0 36 36">
+                                        <!-- Dutch flag -->
+                                        <rect fill="#AE1C28" x="0" y="0" width="36" height="12"></rect>
+                                        <rect fill="#FFF" x="0" y="12" width="36" height="12"></rect>
+                                        <rect fill="#21468B" x="0" y="24" width="36" height="12"></rect>
+                                    </svg>
+                                    <span class="language-name">Nederlands</span>
+                                </button>
+                                <button class="language-option" data-lang="en">
+                                    <svg class="flag-icon" viewBox="0 0 36 36">
+                                        <!-- UK flag -->
+                                        <rect fill="#00247D" x="0" y="0" width="36" height="36"></rect>
+                                        <path d="M0,0 L36,36 M36,0 L0,36" stroke="#FFF" stroke-width="6"></path>
+                                        <path d="M0,0 L36,36 M36,0 L0,36" stroke="#CF142B" stroke-width="4" stroke-dasharray="0,6,30"></path>
+                                        <path d="M18,0 v36 M0,18 h36" stroke="#FFF" stroke-width="10"></path>
+                                        <path d="M18,0 v36 M0,18 h36" stroke="#CF142B" stroke-width="6"></path>
+                                    </svg>
+                                    <span class="language-name">English</span>
+                                </button>
+                                <button class="language-option" data-lang="de">
+                                    <svg class="flag-icon" viewBox="0 0 36 36">
+                                        <!-- German flag -->
+                                        <rect fill="#000" x="0" y="0" width="36" height="12"></rect>
+                                        <rect fill="#DD0000" x="0" y="12" width="36" height="12"></rect>
+                                        <rect fill="#FFCE00" x="0" y="24" width="36" height="12"></rect>
+                                    </svg>
+                                    <span class="language-name">Deutsch</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Links -->
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="/#oplossingen">Oplossingen</a></li>
+                            <li><a href="/#integraties">Integraties</a></li>
+                            <li><a href="/about-us">Over ons</a></li>
+                            <li><a href="/#contact">Boek een demo</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Contact Info -->
+                    <div class="footer-contact">
+                        <h4>Contact</h4>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 10C21 17 12 23 12 23S3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#43DB6F" stroke-width="2"></path>
+                                <path d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z" stroke="#43DB6F" stroke-width="2"></path>
+                            </svg>
+                            <span>Prins Hendrikkade 21e<br>1012 TL Amsterdam</span>
+                        </div>
+                        <div class="contact-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="#43DB6F" stroke-width="2"></path>
+                                <path d="M22 6L12 13L2 6" stroke="#43DB6F" stroke-width="2"></path>
+                            </svg>
+                            <span>info@splitty.nl</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Column -->
+                    <div class="footer-social">
+                        <h4>Volg ons</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/Splittynl" target="_blank" class="social-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.facebook.com/people/Splitty/61573197884003" target="_blank" class="social-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+                                </svg>
+                            </a>
+                            <a href="https://www.linkedin.com/company/splittypay/" target="_blank" class="social-link">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="newsletter">
+                            <p>Blijf op de hoogte</p>
+                            <form class="newsletter-form" action="https://formspree.io/f/xgvyvogn" method="POST" id="newsletter-form">
+                                <input type="email" name="email" placeholder="Email adres" required>
+                                <button type="submit">
+                                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+                                        <path d="M10.5 4.5L16 10M16 10L10.5 15.5M16 10H4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="bottom-content">
+                        <p class="copyright">© 2025 Splitty BV. Alle rechten voorbehouden.</p>
+                        <div class="legal-links">
+                            <a href="/privacy-policy">Privacy Policy</a>
+                            <span class="separator">•</span>
+                            <a href="/algemene-voorwaarden">Algemene Voorwaarden</a>
+                            <span class="separator">•</span>
+                            <a href="https://www.linkedin.com/company/splittypay/" target="_blank">LinkedIn</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const mobileMenuClose = document.querySelector('.mobile-menu-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        // Function to open menu
+        function openMobileMenu() {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            mobileMenuToggle.classList.add('active');
+        }
+
+        // Function to close menu
+        function closeMobileMenu() {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            mobileMenuToggle.classList.remove('active');
+        }
+
+        // Toggle menu on hamburger click
+        mobileMenuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (mobileMenuOverlay.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu on close button click
+        mobileMenuClose.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+
+        // Close menu on nav link click
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenuOverlay.classList.contains('active')) {
+                // Check if click is outside menu overlay and toggle button
+                if (!mobileMenuOverlay.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            }
+        });
+
+        // Prevent clicks inside menu from closing it
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenuOverlay.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close mobile menu when resizing to tablet/desktop view
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Check if window width is larger than mobile breakpoint (640px)
+                if (window.innerWidth > 640 && mobileMenuOverlay.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            }, 250); // Debounce resize event
+        });
+
+        // Language selector functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, setting up language selectors...');
+            
+            // Get all language selectors (header and footer)
+            const languageSelectors = document.querySelectorAll('.language-selector');
+            const languageOptions = document.querySelectorAll('.language-option');
+            
+            console.log('Found language selectors:', languageSelectors.length);
+            
+            if (languageSelectors.length === 0) {
+                console.error('No language selectors found!');
+                return;
+            }
+
+            languageSelectors.forEach((selector, index) => {
+                const toggle = selector.querySelector('.language-toggle');
+                const dropdown = selector.querySelector('.language-dropdown');
+                
+                console.log(`Setting up selector ${index + 1}:`, {
+                    toggle: toggle,
+                    dropdown: dropdown
+                });
+                
+                if (!toggle || !dropdown) {
+                    console.error(`Missing elements in selector ${index + 1}`);
+                    return;
+                }
+                
+                // Toggle dropdown on click
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    console.log('Toggle clicked, current state:', selector.classList.contains('active'));
+                    
+                    // Close other dropdowns
+                    languageSelectors.forEach(otherSelector => {
+                        if (otherSelector !== selector) {
+                            otherSelector.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    selector.classList.toggle('active');
+                    
+                    console.log('New state:', selector.classList.contains('active'));
+                });
+            });
+            
+            // Handle language selection
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const lang = this.getAttribute('data-lang');
+                    console.log('Language selected:', lang);
+                    
+                    // Update all active states
+                    languageOptions.forEach(opt => opt.classList.remove('active'));
+                    document.querySelectorAll(`[data-lang="${lang}"]`).forEach(opt => opt.classList.add('active'));
+                    
+                    // Update current language display in all selectors
+                    languageSelectors.forEach(selector => {
+                        const toggle = selector.querySelector('.language-toggle');
+                        const currentFlag = this.querySelector('.flag-icon').cloneNode(true);
+                        const currentCode = lang.toUpperCase();
+                        
+                        // Update toggle display
+                        const languageCurrentDiv = toggle.querySelector('.language-current');
+                        languageCurrentDiv.innerHTML = '';
+                        languageCurrentDiv.appendChild(currentFlag);
+                        
+                        const codeSpan = document.createElement('span');
+                        codeSpan.className = 'language-code';
+                        codeSpan.textContent = currentCode;
+                        languageCurrentDiv.appendChild(codeSpan);
+                        
+                        // Close dropdown
+                        selector.classList.remove('active');
+                    });
+                    
+                    console.log('Language change complete');
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function(e) {
+                console.log('Document clicked');
+                languageSelectors.forEach(selector => {
+                    if (!selector.contains(e.target)) {
+                        selector.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Prevent dropdown clicks from bubbling
+            document.querySelectorAll('.language-dropdown').forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+
+        // Newsletter form handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonContent = submitButton.innerHTML;
+                
+                // Show loading state
+                submitButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="43.98" stroke-dashoffset="10"><animate attributeName="stroke-dashoffset" from="43.98" to="0" dur="1s" repeatCount="indefinite"/></circle></svg>';
+                submitButton.disabled = true;
+                
+                try {
+                    // Submit to Formspree
+                    const response = await fetch(this.action, {
+                        method: 'POST',
+                        body: new FormData(this),
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        // Show success checkmark
+                        submitButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13.5 4.5L6 12L2.5 8.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+                        submitButton.style.color = '#43DB6F';
+                        
+                        // Reset form
+                        this.reset();
+                        
+                        // Reset button after 2 seconds
+                        setTimeout(() => {
+                            submitButton.innerHTML = originalButtonContent;
+                            submitButton.style.color = '';
+                            submitButton.disabled = false;
+                        }, 2000);
+                    } else {
+                        throw new Error('Submit failed');
+                    }
+                } catch (error) {
+                    // Reset on error
+                    submitButton.innerHTML = originalButtonContent;
+                    submitButton.disabled = false;
+                    alert('Er ging iets mis. Probeer het later opnieuw.');
+                }
+            });
+            }
+        });
+
+        // Smooth scroll functionality for navigation links
+        function initSmoothScroll() {
+            // Handle all navigation links
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    
+                    // Check if it's an internal link with hash
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Smooth scroll to target
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                            
+                            // Update URL hash without jumping
+                            history.pushState(null, null, href);
+                        }
+                    }
+                    // For links to other pages with hash (like index.html#contact)
+                    else if (href && href.includes('#')) {
+                        // Let the browser handle navigation
+                        return true;
+                    }
+                });
+            });
+        }
+
+        // Initialize smooth scroll
+        initSmoothScroll();
+    </script>
+</body>
+</html>
