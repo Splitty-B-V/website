@@ -377,6 +377,7 @@
             <form class="form" id="step1-form">
                 <input type="text" id="form-name" placeholder="Voor- en achternaam" class="input">
                 <input type="tel" id="form-phone" placeholder="Telefoonnummer" class="input">
+                <input type="email" id="form-email" placeholder="E-mailadres" class="input">
                 <input type="text" id="form-restaurant" placeholder="Naam restaurant/vestiging" class="input">
                 <button type="button" class="button" id="step1-btn">Ga naar stap 2</button>
             </form>
@@ -450,6 +451,7 @@
                 <!-- Hidden fields with data from previous steps -->
                 <input type="hidden" name="name" id="hidden-name">
                 <input type="hidden" name="phone" id="hidden-phone">
+                <input type="hidden" name="email" id="hidden-email">
                 <input type="hidden" name="restaurant" id="hidden-restaurant">
                 <input type="hidden" name="payment_method" id="hidden-payment-method">
                 <input type="hidden" name="_subject" value="Nieuwe lead van landing page - 3 stappen formulier">
@@ -476,15 +478,17 @@
             if (step === 2) {
                 const name = document.getElementById('form-name').value;
                 const phone = document.getElementById('form-phone').value;
+                const email = document.getElementById('form-email').value;
                 const restaurant = document.getElementById('form-restaurant').value;
                 
-                if (!name || !phone || !restaurant) {
+                if (!name || !phone || !email || !restaurant) {
                     alert('Vul alle velden in voordat je verder gaat');
                     return;
                 }
                 
                 formData.name = name;
                 formData.phone = phone;
+                formData.email = email;
                 formData.restaurant = restaurant;
             } else if (step === 3) {
                 const paymentMethod = document.querySelector('input[name="payment_method"]:checked');
@@ -516,6 +520,7 @@
                 // Populate hidden fields for final submission
                 document.getElementById('hidden-name').value = formData.name;
                 document.getElementById('hidden-phone').value = formData.phone;
+                document.getElementById('hidden-email').value = formData.email;
                 document.getElementById('hidden-restaurant').value = formData.restaurant;
                 document.getElementById('hidden-payment-method').value = formData.payment_method;
             }
