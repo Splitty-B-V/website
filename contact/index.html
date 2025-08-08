@@ -316,6 +316,8 @@
 
         .form-group {
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
         .form-group.full-width {
@@ -351,34 +353,32 @@
         }
 
         .form-group label {
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 16px;
+            display: block !important;
+            position: static !important;
+            margin-bottom: 8px !important;
+            font-size: 14px !important;
+            font-weight: 500 !important;
+            color: #0E100F !important;
+            transform: none !important;
+            top: auto !important;
+            left: auto !important;
+            background: none !important;
+            padding: 0 !important;
+            pointer-events: auto !important;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
             color: #999;
-            pointer-events: none;
-            transition: all 0.3s ease;
-            background: linear-gradient(to bottom, transparent 40%, #F8F9FA 40%, #F8F9FA 60%, transparent 60%);
-            padding: 0 4px;
+            opacity: 1;
         }
-
-        .form-group textarea ~ label {
-            top: 24px;
-            transform: translateY(0);
+        
+        .form-group select option:first-child {
+            color: #999;
         }
-
-        .form-group input:focus ~ label,
-        .form-group input:not(:placeholder-shown) ~ label,
-        .form-group textarea:focus ~ label,
-        .form-group textarea:not(:placeholder-shown) ~ label,
-        .form-group select:focus ~ label,
-        .form-group select:valid ~ label {
-            top: -10px;
-            transform: translateY(0);
-            font-size: 12px;
-            color: #43DB6F;
-            background: linear-gradient(to bottom, transparent 45%, white 45%, white 55%, transparent 55%);
+        
+        .form-group select {
+            cursor: pointer;
         }
 
         /* Submit Button */
@@ -481,6 +481,39 @@
             height: 40px;
             stroke: white;
             stroke-width: 3;
+        }
+
+        /* Language Selector Styles for Contact Page */
+        .language-dropdown {
+            position: absolute !important;
+            top: 100% !important;
+            right: 0 !important;
+            margin-top: 8px !important;
+            background: white !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(-10px) !important;
+            transition: all 0.3s ease !important;
+            z-index: 9999 !important;
+            min-width: 180px !important;
+            pointer-events: none !important;
+        }
+
+        .language-dropdown.active,
+        .language-selector.active .language-dropdown,
+        .footer-language-selector.active .language-dropdown,
+        .footer-language-selector.active .footer-language-dropdown {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+            pointer-events: auto !important;
+        }
+
+        .language-selector {
+            position: relative !important;
+            z-index: 1000 !important;
         }
 
         /* Responsive Design */
@@ -931,40 +964,40 @@
                             <form id="contact-form" class="contact-form" action="https://formspree.io/f/mjkrvran" method="POST">
                                 <div class="form-grid">
                                     <div class="form-group">
-                                        <input type="text" id="name" name="name" placeholder=" " required>
-                                        <label for="name">Voornaam</label>
+                                        <label for="name">Naam <span style="color: #FF4444;">*</span></label>
+                                        <input type="text" id="name" name="name" placeholder="Jouw naam" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" id="surname" name="surname" placeholder=" " required>
-                                        <label for="surname">Achternaam</label>
+                                        <label for="surname">Achternaam <span style="color: #FF4444;">*</span></label>
+                                        <input type="text" id="surname" name="surname" placeholder="Jouw achternaam" required>
                                     </div>
                                     <div class="form-group full-width">
-                                        <input type="email" id="email" name="email" placeholder=" " required>
-                                        <label for="email">Email</label>
+                                        <label for="email">Email <span style="color: #FF4444;">*</span></label>
+                                        <input type="email" id="email" name="email" placeholder="jouw@email.com" required>
                                     </div>
                                     <div class="form-group full-width">
-                                        <input type="tel" id="phone" name="phone" placeholder=" " pattern="[0-9]*" inputmode="numeric" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
-                                        <label for="phone">Telefoonnummer (optioneel)</label>
+                                        <label for="phone">Telefoon <span style="color: #6B7280; font-size: 12px;">(optioneel)</span></label>
+                                        <input type="tel" id="phone" name="phone" placeholder="+31 6 12345678">
                                     </div>
                                     <div class="form-group full-width">
-                                        <input type="text" id="company" name="company" placeholder=" ">
-                                        <label for="company">Bedrijfsnaam (optioneel)</label>
+                                        <label for="company">Bedrijfsnaam <span style="color: #6B7280; font-size: 12px;">(optioneel)</span></label>
+                                        <input type="text" id="company" name="company" placeholder="Jouw bedrijf">
                                     </div>
                                     <div class="form-group full-width">
+                                        <label for="subject">Onderwerp <span style="color: #FF4444;">*</span></label>
                                         <select id="subject" name="subject" required>
-                                            <option value="" disabled selected></option>
+                                            <option value="" disabled selected>Kies een onderwerp</option>
                                             <option value="Algemene vraag">Algemene vraag</option>
+                                            <option value="Ondersteuning">Ondersteuning</option>
                                             <option value="Demo aanvragen">Demo aanvragen</option>
-                                            <option value="Technische ondersteuning">Technische ondersteuning</option>
                                             <option value="Prijsinformatie">Prijsinformatie</option>
                                             <option value="Partnership">Partnership</option>
                                             <option value="Anders">Anders</option>
                                         </select>
-                                        <label for="subject">Onderwerp</label>
                                     </div>
                                     <div class="form-group full-width">
-                                        <textarea id="message" name="message" placeholder=" " required style="min-height: 150px;"></textarea>
-                                        <label for="message">Je bericht</label>
+                                        <label for="message">Bericht <span style="color: #FF4444;">*</span></label>
+                                        <textarea id="message" name="message" placeholder="Vertel ons hoe we je kunnen helpen..." required style="min-height: 150px;"></textarea>
                                     </div>
                                 </div>
                                 
@@ -1617,26 +1650,41 @@
 
         // Simple and direct language toggle implementation
         window.addEventListener('load', function() {
-            // Handle toggle button clicks
+            console.log('Language toggle system initializing...');
+            
+            // Handle toggle button clicks with event delegation
             document.addEventListener('click', function(e) {
                 // Check if clicked on toggle button or its children
                 const toggle = e.target.closest('.language-toggle');
                 if (toggle) {
                     e.preventDefault();
                     e.stopPropagation();
+                    console.log('Language toggle clicked');
                     
-                    // Find the dropdown that belongs to this toggle
-                    const dropdown = toggle.nextElementSibling;
-                    if (dropdown && (dropdown.classList.contains('language-dropdown') || dropdown.classList.contains('footer-language-dropdown'))) {
-                        // Close all other dropdowns
-                        document.querySelectorAll('.language-dropdown, .footer-language-dropdown').forEach(d => {
-                            if (d !== dropdown) {
-                                d.classList.remove('active');
-                            }
-                        });
+                    // Get the parent selector (either .language-selector or .footer-language-selector)
+                    const selectorParent = toggle.closest('.language-selector, .footer-language-selector');
+                    
+                    if (selectorParent) {
+                        // Find the dropdown within the same parent
+                        const dropdown = selectorParent.querySelector('.language-dropdown, .footer-language-dropdown');
                         
-                        // Toggle this dropdown
-                        dropdown.classList.toggle('active');
+                        if (dropdown) {
+                            console.log('Toggling dropdown:', dropdown);
+                            
+                            // Close all other dropdowns first
+                            document.querySelectorAll('.language-dropdown, .footer-language-dropdown').forEach(d => {
+                                if (d !== dropdown) {
+                                    d.classList.remove('active');
+                                    // Also remove active from parent selectors
+                                    const parent = d.closest('.language-selector, .footer-language-selector');
+                                    if (parent) parent.classList.remove('active');
+                                }
+                            });
+                            
+                            // Toggle this dropdown and its parent
+                            dropdown.classList.toggle('active');
+                            selectorParent.classList.toggle('active');
+                        }
                     }
                     return;
                 }
@@ -1686,17 +1734,27 @@
                         }
                     });
                     
-                    // Close all dropdowns
-                    document.querySelectorAll('.language-dropdown, .footer-language-dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
+                    // Close all dropdowns and remove active class from parents
+                    setTimeout(() => {
+                        document.querySelectorAll('.language-dropdown, .footer-language-dropdown').forEach(dropdown => {
+                            dropdown.classList.remove('active');
+                            // Also remove active from parent selectors
+                            const parent = dropdown.closest('.language-selector, .footer-language-selector');
+                            if (parent) parent.classList.remove('active');
+                        });
+                    }, 100); // Small delay for smooth transition
+                    
                     return;
                 }
                 
                 // Click outside - close all dropdowns
                 if (!e.target.closest('.language-selector') && !e.target.closest('.footer-language-selector')) {
+                    console.log('Clicked outside, closing dropdowns');
                     document.querySelectorAll('.language-dropdown, .footer-language-dropdown').forEach(dropdown => {
                         dropdown.classList.remove('active');
+                        // Also remove active from parent selectors
+                        const parent = dropdown.closest('.language-selector, .footer-language-selector');
+                        if (parent) parent.classList.remove('active');
                     });
                 }
             });
