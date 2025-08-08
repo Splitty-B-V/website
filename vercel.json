@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/lander/:path*",
-      "destination": "https://splitty-lander.vercel.app/:path*"
-    }
-  ]
-}
