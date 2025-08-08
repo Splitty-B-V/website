@@ -456,13 +456,14 @@
                 
                 <div style="display: flex; gap: 1rem;">
                     <button type="button" class="button-secondary" id="back-to-step2">Terug</button>
-                    <button type="submit" class="button" style="flex: 1;">Vraag demo aan</button>
+                    <button type="submit" class="button" style="flex: 1;" id="submit-btn">Vraag demo aan</button>
                 </div>
             </form>
         </div>
         
         <div class="success-message" id="success-message">
-            ✓ Bedankt! We nemen binnen 24 uur contact met je op.
+            ✓ Bedankt! We nemen binnen 24 uur contact met je op.<br>
+            <small style="opacity: 0.8; font-size: 0.9rem;">Je wordt doorgestuurd naar splitty.nl...</small>
         </div>
         </div>
     </div>
@@ -599,10 +600,13 @@
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                const button = form.querySelector('.button');
+                const button = document.getElementById('submit-btn');
                 const originalText = button.textContent;
                 button.textContent = 'Verzenden...';
                 button.disabled = true;
+                
+                // Debug log
+                console.log('Form submitting...');
                 
                 try {
                     const response = await fetch(form.action, {
@@ -613,12 +617,17 @@
                         }
                     });
                     
+                    console.log('Response received:', response.ok);
+                    
                     if (response.ok) {
                         // Hide the entire form container
                         document.getElementById('step3').style.display = 'none';
                         document.querySelector('.progress-bar').style.display = 'none';
-                        document.querySelector('p[style*="Stap"]').style.display = 'none';
+                        const stepIndicator = document.querySelector('p[style*="rgba(255, 255, 255, 0.6)"]');
+                        if (stepIndicator) stepIndicator.style.display = 'none';
+                        
                         successMessage.classList.add('show');
+                        successMessage.style.display = 'block';
                         
                         // Track conversion if gtag is available
                         if (typeof gtag !== 'undefined') {
@@ -629,12 +638,20 @@
                             });
                         }
                         
-                        // Scroll to success message
+                        // Show success message briefly then redirect
                         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        
+                        console.log('Redirecting in 2 seconds...');
+                        
+                        // Redirect to splitty.nl after 2 seconds
+                        setTimeout(() => {
+                            window.location.href = 'https://splitty.nl';
+                        }, 2000);
                     } else {
                         throw new Error('Form submission failed');
                     }
                 } catch (error) {
+                    console.error('Error:', error);
                     button.textContent = 'Probeer opnieuw';
                     button.disabled = false;
                     setTimeout(() => {
