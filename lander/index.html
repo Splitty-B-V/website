@@ -188,6 +188,25 @@
             transform: translateY(0);
         }
         
+        .button-secondary {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: auto;
+            -webkit-appearance: none;
+        }
+        
+        .button-secondary:hover {
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
         .radio-tile {
             display: block;
             width: 100%;
@@ -359,7 +378,7 @@
                 <input type="text" id="form-name" placeholder="Voor- en achternaam" class="input">
                 <input type="tel" id="form-phone" placeholder="Telefoonnummer" class="input">
                 <input type="text" id="form-restaurant" placeholder="Naam restaurant/vestiging" class="input">
-                <button type="button" class="button" id="step1-btn">➡️ Ga naar stap 2</button>
+                <button type="button" class="button" id="step1-btn">Ga naar stap 2</button>
             </form>
         </div>
         
@@ -384,8 +403,8 @@
                     <div class="tile-content">Beide</div>
                 </label>
                 <div style="display: flex; gap: 1rem;">
-                    <button type="button" class="button" style="background: rgba(255, 255, 255, 0.1); flex: 1;" id="back-to-step1">← Terug</button>
-                    <button type="button" class="button" id="step2-btn" style="flex: 2;">➡️ Ga naar stap 3</button>
+                    <button type="button" class="button-secondary" id="back-to-step1">Terug</button>
+                    <button type="button" class="button" id="step2-btn" style="flex: 1;">Ga naar stap 3</button>
                 </div>
             </form>
         </div>
@@ -436,8 +455,8 @@
                 <input type="hidden" name="_subject" value="Nieuwe lead van landing page - 3 stappen formulier">
                 
                 <div style="display: flex; gap: 1rem;">
-                    <button type="button" class="button" style="background: rgba(255, 255, 255, 0.1); flex: 1;" id="back-to-step2">← Terug</button>
-                    <button type="submit" class="button" style="flex: 2;">✅ Vraag mijn gratis demo aan</button>
+                    <button type="button" class="button-secondary" id="back-to-step2">Terug</button>
+                    <button type="submit" class="button" style="flex: 1;">Vraag demo aan</button>
                 </div>
             </form>
         </div>
