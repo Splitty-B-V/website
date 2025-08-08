@@ -946,14 +946,14 @@ body {
   }
 }
 
-/* Mobile phones only (up to 640px) - Show hamburger menu */
-@media (max-width: 640px) {
+/* Tablets and mobile (up to 910px) - Show hamburger menu */
+@media (max-width: 910px) {
   .nav-menu {
-    display: none;
+    display: none !important;
   }
   
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
   }
   
   /* Adjust navbar for mobile with language selector */

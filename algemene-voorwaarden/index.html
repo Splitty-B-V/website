@@ -239,6 +239,7 @@
                     <a href="/#oplossingen" class="nav-link">Oplossingen</a>
                     <a href="/#integraties" class="nav-link">Integraties</a>
                     <a href="/over-ons" class="nav-link">Over ons</a>
+                    <a href="/contact" class="nav-link">Contact</a>
                     <a href="/#contact" class="nav-link btn-primary">Boek een demo</a>
                     <div class="language-selector">
                         <button class="language-toggle" aria-label="Change language" type="button">
@@ -547,6 +548,7 @@
                             <li><a href="/#oplossingen">Oplossingen</a></li>
                             <li><a href="/#integraties">Integraties</a></li>
                             <li><a href="/over-ons">Over ons</a></li>
+                            <li><a href="/contact">Contact</a></li>
                             <li><a href="/#contact">Boek een demo</a></li>
                         </ul>
                     </div>
@@ -857,6 +859,22 @@
                     alert('Er ging iets mis. Probeer het later opnieuw.');
                 }
             });
+            }
+        });
+        
+        // Ensure footer links are correct on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const footerLinks = document.querySelector('.footer-links');
+            if (footerLinks) {
+                const links = footerLinks.querySelectorAll('a');
+                if (links.length >= 5) {
+                    // Ensure correct text for footer links
+                    links[0].textContent = 'Oplossingen';
+                    links[1].textContent = 'Integraties';
+                    links[2].textContent = 'Over ons';
+                    links[3].textContent = 'Contact';
+                    links[4].textContent = 'Boek een demo';
+                }
             }
         });
     </script>
