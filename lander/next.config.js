@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Voor static export (als je geen server-side rendering nodig hebt)
-  output: 'export',
-  // Base path voor subfolder deployment
-  basePath: '/lander',
-  assetPrefix: '/lander/',
+  // Verwijder output: 'export' voor Vercel
+  // Verwijder basePath voor development
+  // basePath: '/lander',
+  // assetPrefix: '/lander/',
   trailingSlash: true,
 }
 
