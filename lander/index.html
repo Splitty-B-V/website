@@ -18,10 +18,86 @@
             background: linear-gradient(135deg, #0E100F 0%, #1a1c1b 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             padding: 20px;
-            padding-top: 100px; /* Space for logo on mobile */
+        }
+        
+        .wrapper {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .logo {
+            width: 120px;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            max-width: 400px;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #43DB6F 0%, #00FF66 100%);
+            width: 33.33%; /* Step 1 of 3 */
+            transition: width 0.3s ease;
+        }
+        
+        .progress-steps {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+        
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+        }
+        
+        .step.active .step-number {
+            background: linear-gradient(135deg, #43DB6F 0%, #00FF66 100%);
+            color: #0E100F;
+        }
+        
+        .step-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+        
+        .step.active .step-label {
+            color: rgba(255, 255, 255, 0.8);
         }
         
         .container {
@@ -112,28 +188,50 @@
             transform: translateY(0);
         }
         
-        .features {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-            padding: 0 20px;
+        .radio-tile {
+            display: block;
+            width: 100%;
+            cursor: pointer;
         }
         
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .radio-tile input[type="radio"] {
+            display: none;
         }
         
-        .logo {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            width: 120px;
-            z-index: 10;
+        .tile-content {
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .radio-tile input[type="radio"]:checked + .tile-content {
+            border-color: #43DB6F;
+            background: rgba(67, 219, 111, 0.1);
+        }
+        
+        .tile-content:hover {
+            border-color: rgba(67, 219, 111, 0.5);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .step-content {
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .progress-fill.step-2 {
+            width: 66.66%;
+        }
+        
+        .progress-fill.step-3 {
+            width: 100%;
         }
         
         .success-message {
@@ -167,11 +265,11 @@
         @media (max-width: 768px) {
             body {
                 padding: 20px;
-                padding-top: 120px; /* More space for logo on mobile */
-                min-height: 100vh;
-                display: flex;
-                align-items: flex-start;
                 padding-bottom: 40px;
+            }
+            
+            .wrapper {
+                gap: 1.5rem;
             }
             
             .container {
@@ -189,17 +287,8 @@
                 padding: 0;
             }
             
-            .features {
-                flex-direction: column;
-                gap: 0.75rem;
-                align-items: center;
-            }
-            
             .logo {
                 width: 100px;
-                top: 20px;
-                left: 20px;
-                position: absolute; /* Changed from fixed to absolute on mobile */
             }
             
             .form {
@@ -215,13 +304,20 @@
                 padding: 1rem 1.5rem;
                 font-size: 1rem;
             }
+            
+            .progress-steps {
+                margin-bottom: 1.5rem;
+            }
+            
+            .step-label {
+                font-size: 0.65rem;
+            }
         }
         
         /* Very small devices */
         @media (max-width: 375px) {
             body {
                 padding: 15px;
-                padding-top: 100px;
             }
             
             h1 {
@@ -234,45 +330,248 @@
             
             .logo {
                 width: 80px;
-                top: 15px;
-                left: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680be744050df4a2fa729a9d_Logo.svg" 
-         alt="Splitty Logo" 
-         class="logo">
-    
-    <div class="container">
-        <h1>Verhoog je omzet met <span class="accent">50%</span></h1>
-        <p class="description">
-            Bied je klanten de vrijheid om te betalen zoals zij willen. 
-            Split betalingen, betaal later, of direct - alles in één oplossing.
-        </p>
+    <div class="wrapper">
+        <img src="https://cdn.prod.website-files.com/680a69113e179ecd02a69613/680be744050df4a2fa729a9d_Logo.svg" 
+             alt="Splitty Logo" 
+             class="logo">
         
-        <form class="form" id="lead-form" action="https://formspree.io/f/mjkrvran" method="POST">
-            <input type="text" name="name" placeholder="Naam" class="input" required>
-            <input type="email" name="email" placeholder="Email" class="input" required>
-            <input type="tel" name="phone" placeholder="Telefoonnummer" class="input" required>
-            <input type="text" name="company" placeholder="Bedrijfsnaam (optioneel)" class="input">
-            <input type="hidden" name="_subject" value="Nieuwe lead van landing page">
-            <button type="submit" class="button">Start Gratis Trial</button>
-        </form>
-        
-        <div class="success-message" id="success-message">
-            ✓ Bedankt! We nemen snel contact met je op.
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
         </div>
         
-        <div class="features">
-            <div class="feature">✓ Geen setupkosten</div>
-            <div class="feature">✓ Binnen 5 minuten live</div>
-            <div class="feature">✓ 30 dagen gratis proberen</div>
+        <div class="container">
+        <!-- Stap indicator -->
+        <p style="color: rgba(255, 255, 255, 0.6); font-size: 0.875rem; margin-bottom: 1rem;">Stap <span id="current-step">1</span> van 3 – Nog maar 10 seconden</p>
+        
+        <!-- Stap 1 -->
+        <div id="step1" class="step-content">
+            <h1>Laat gasten zelf afrekenen — <span class="accent">sneller, hogere fooi, minder werkdruk</span></h1>
+            <p class="description">
+                Met Splitty scannen gasten de QR-code, betalen in seconden en kiezen zelf hun fooi. Jij hebt minder rondjes te lopen en meer tevreden gasten. Vul in en ontdek hoe snel je kunt starten.
+            </p>
+            
+            <form class="form" id="step1-form">
+                <input type="text" id="form-name" placeholder="Voor- en achternaam" class="input">
+                <input type="tel" id="form-phone" placeholder="Telefoonnummer" class="input">
+                <input type="text" id="form-restaurant" placeholder="Naam restaurant/vestiging" class="input">
+                <button type="button" class="button" id="step1-btn">➡️ Ga naar stap 2</button>
+            </form>
+        </div>
+        
+        <!-- Stap 2 -->
+        <div id="step2" class="step-content" style="display: none;">
+            <h1>Hoe betalen gasten nu bij jullie?</h1>
+            <p class="description">
+                We passen Splitty aan op jullie manier van werken.
+            </p>
+            
+            <form class="form" id="step2-form">
+                <label class="radio-tile">
+                    <input type="radio" name="payment_method" value="tafel" required>
+                    <div class="tile-content">Aan tafel de ober roepen</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="payment_method" value="kassa" required>
+                    <div class="tile-content">Bij de kassa</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="payment_method" value="beide" required>
+                    <div class="tile-content">Beide</div>
+                </label>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="button" class="button" style="background: rgba(255, 255, 255, 0.1); flex: 1;" id="back-to-step1">← Terug</button>
+                    <button type="button" class="button" id="step2-btn" style="flex: 2;">➡️ Ga naar stap 3</button>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Stap 3 -->
+        <div id="step3" class="step-content" style="display: none;">
+            <h1>Met welk kassasysteem werken jullie?</h1>
+            <p class="description">
+                Splitty koppelt direct aan jullie POS — klaar voor gebruik.
+            </p>
+            
+            <form class="form" id="lead-form" action="https://formspree.io/f/mjkrvran" method="POST">
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="Untill" required>
+                    <div class="tile-content">Untill</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="Lightspeed" required>
+                    <div class="tile-content">Lightspeed</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="Mpluskassa" required>
+                    <div class="tile-content">Mpluskassa</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="Povis" required>
+                    <div class="tile-content">Povis</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="Unitouch" required>
+                    <div class="tile-content">Unitouch</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="IJsinck" required>
+                    <div class="tile-content">IJsinck</div>
+                </label>
+                <label class="radio-tile">
+                    <input type="radio" name="pos_system" value="Anders" onclick="showOtherInput()" required>
+                    <div class="tile-content">Anders</div>
+                </label>
+                <input type="text" name="pos_other" placeholder="Vul uw kassasysteem in" class="input" style="display: none;" id="pos-other-input">
+                
+                <!-- Hidden fields with data from previous steps -->
+                <input type="hidden" name="name" id="hidden-name">
+                <input type="hidden" name="phone" id="hidden-phone">
+                <input type="hidden" name="restaurant" id="hidden-restaurant">
+                <input type="hidden" name="payment_method" id="hidden-payment-method">
+                <input type="hidden" name="_subject" value="Nieuwe lead van landing page - 3 stappen formulier">
+                
+                <div style="display: flex; gap: 1rem;">
+                    <button type="button" class="button" style="background: rgba(255, 255, 255, 0.1); flex: 1;" id="back-to-step2">← Terug</button>
+                    <button type="submit" class="button" style="flex: 2;">✅ Vraag mijn gratis demo aan</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="success-message" id="success-message">
+            ✓ Bedankt! We nemen binnen 24 uur contact met je op.
+        </div>
         </div>
     </div>
     
     <script>
+        let formData = {};
+        
+        function goToStep(step) {
+            // Validate current step
+            if (step === 2) {
+                const name = document.getElementById('form-name').value;
+                const phone = document.getElementById('form-phone').value;
+                const restaurant = document.getElementById('form-restaurant').value;
+                
+                if (!name || !phone || !restaurant) {
+                    alert('Vul alle velden in voordat je verder gaat');
+                    return;
+                }
+                
+                formData.name = name;
+                formData.phone = phone;
+                formData.restaurant = restaurant;
+            } else if (step === 3) {
+                const paymentMethod = document.querySelector('input[name="payment_method"]:checked');
+                
+                if (!paymentMethod) {
+                    alert('Selecteer een betaalmethode');
+                    return;
+                }
+                
+                formData.payment_method = paymentMethod.value;
+            }
+            
+            // Hide all steps
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'none';
+            
+            // Show current step
+            document.getElementById('step' + step).style.display = 'block';
+            
+            // Update progress bar
+            const progressFill = document.querySelector('.progress-fill');
+            if (step === 2) {
+                progressFill.classList.add('step-2');
+                progressFill.classList.remove('step-3');
+            } else if (step === 3) {
+                progressFill.classList.add('step-3');
+                
+                // Populate hidden fields for final submission
+                document.getElementById('hidden-name').value = formData.name;
+                document.getElementById('hidden-phone').value = formData.phone;
+                document.getElementById('hidden-restaurant').value = formData.restaurant;
+                document.getElementById('hidden-payment-method').value = formData.payment_method;
+            }
+            
+            // Update step indicator
+            document.getElementById('current-step').textContent = step;
+        }
+        
+        // Add event listeners when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Step 1 button
+            const step1Btn = document.getElementById('step1-btn');
+            if (step1Btn) {
+                step1Btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    goToStep(2);
+                });
+            }
+            
+            // Step 2 button
+            const step2Btn = document.getElementById('step2-btn');
+            if (step2Btn) {
+                step2Btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    goToStep(3);
+                });
+            }
+            
+            // Back buttons
+            const backToStep1 = document.getElementById('back-to-step1');
+            if (backToStep1) {
+                backToStep1.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('step2').style.display = 'none';
+                    document.getElementById('step1').style.display = 'block';
+                    document.querySelector('.progress-fill').classList.remove('step-2', 'step-3');
+                    document.getElementById('current-step').textContent = '1';
+                });
+            }
+            
+            const backToStep2 = document.getElementById('back-to-step2');
+            if (backToStep2) {
+                backToStep2.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('step3').style.display = 'none';
+                    document.getElementById('step2').style.display = 'block';
+                    document.querySelector('.progress-fill').classList.remove('step-3');
+                    document.querySelector('.progress-fill').classList.add('step-2');
+                    document.getElementById('current-step').textContent = '2';
+                });
+            }
+        });
+        
+        function showOtherInput() {
+            const otherInput = document.getElementById('pos-other-input');
+            const andersRadio = document.querySelector('input[value="Anders"]');
+            
+            if (andersRadio.checked) {
+                otherInput.style.display = 'block';
+                otherInput.required = true;
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.required = false;
+            }
+        }
+        
+        // Hide other input when different POS is selected
+        document.querySelectorAll('input[name="pos_system"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.value !== 'Anders') {
+                    document.getElementById('pos-other-input').style.display = 'none';
+                    document.getElementById('pos-other-input').required = false;
+                }
+            });
+        });
+        
         // Form submission handler
         const form = document.getElementById('lead-form');
         const successMessage = document.getElementById('success-message');
@@ -296,7 +595,10 @@
                     });
                     
                     if (response.ok) {
-                        form.style.display = 'none';
+                        // Hide the entire form container
+                        document.getElementById('step3').style.display = 'none';
+                        document.querySelector('.progress-bar').style.display = 'none';
+                        document.querySelector('p[style*="Stap"]').style.display = 'none';
                         successMessage.classList.add('show');
                         
                         // Track conversion if gtag is available
