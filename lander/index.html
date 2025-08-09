@@ -6,6 +6,10 @@
     <title>Splitty - Verhoog je omzet met 50%</title>
     <meta name="description" content="Laat je klanten betalen zoals zij willen. Verhoog conversie met flexibele betaalopties.">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Theme color voor browser balk -->
+    <meta name="theme-color" content="#0E100F">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="msapplication-navbutton-color" content="#0E100F">
     <style>
         * {
             margin: 0;
@@ -376,7 +380,7 @@
             
             <form class="form" id="step1-form">
                 <input type="text" id="form-name" placeholder="Voor- en achternaam" class="input">
-                <input type="tel" id="form-phone" placeholder="Telefoonnummer" class="input">
+                <input type="tel" id="form-phone" placeholder="Telefoonnummer" class="input" pattern="[0-9+\-\s]+" inputmode="numeric" maxlength="12" onkeypress="return event.charCode >= 48 && event.charCode <= 57 || event.charCode === 43 || event.charCode === 45 || event.charCode === 32">
                 <input type="email" id="form-email" placeholder="E-mailadres" class="input">
                 <input type="text" id="form-restaurant" placeholder="Naam restaurant/vestiging" class="input">
                 <button type="button" class="button" id="step1-btn">Ga naar stap 2</button>
